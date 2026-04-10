@@ -1,0 +1,8 @@
+export const philosophy = [
+  { icon: '👤', title: 'User-Centred Thinking', desc: 'Every design decision starts and ends with the user. Research, personas, and journey maps are the core of how I understand what to build and why.', quote: '"Understand the person before you design the pixel."' },
+  { icon: '🧩', title: 'Problem-First, Aesthetic Second', desc: 'I treat design as problem-solving, not decoration. Clarity and function come first — aesthetics amplify what already works.', quote: '"Design is not how it looks. It\'s how it works."' },
+  { icon: '⚡', title: 'Performance-First UI', desc: 'Designing with implementation in mind — component architectures that are fast, scalable, and maintainable. Performance is a design quality.', quote: '"Speed is a feature. Build for it from the first frame."' },
+  { icon: '♿', title: 'Accessibility Awareness', desc: "Inclusive design isn't optional. Responsive, accessible interfaces using semantic HTML and WCAG-conscious choices for the widest possible audience.", quote: '"If it\'s not accessible, it\'s not finished."' },
+  { icon: '🤝', title: 'Collaboration Mindset', desc: "Design doesn't happen in isolation. Working closely with PMs, engineers, and clients — communicating design rationale and iterating based on real feedback.", quote: '"The best ideas emerge when everyone\'s voice is heard."' },
+  { icon: '🔄', title: 'Systems Thinking', desc: 'Building for scale — not one-off screens. Agile, documented design systems ensure consistency, speed up development, and let teams move without breaking things.', quote: '"Design the system, not just the screen."' },
+];
