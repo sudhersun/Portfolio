@@ -14,7 +14,7 @@ export default function About() {
             <div className="label">About Me</div>
             <h2 className="sec-title">Design + Code,<br />Combined.</h2>
             <div className="about-text">
-              <p>I'm a <strong>UI Engineer & Product Designer</strong> with 3.6 years of experience delivering scalable digital products across SaaS, B2B, analytics, and e-commerce platforms — based in Tirunelveli, Tamil Nadu.</p>
+              <p>I'm a <strong>UI Engineer & Product Designer</strong> with 3.5 years of experience delivering scalable digital products across SaaS, B2B, analytics, and e-commerce platforms — based in Tirunelveli, Tamil Nadu.</p>
               <p>My edge is working across both disciplines seamlessly. I speak Figma and React fluently — translating complex business requirements into <strong>intuitive, performance-focused user experiences</strong> aligned with product goals.</p>
               <p>Currently at <strong>Soft Suave Technology</strong>, leading end-to-end UI/UX design and frontend development, mentoring designers, and managing multiple high-impact projects across diverse client domains.</p>
             </div>

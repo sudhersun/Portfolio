@@ -19,7 +19,7 @@ export default function Hero() {
             <span className="ln"><span className="wd cb">&amp; Designer</span></span>
           </h1>
           <div className="hero-role">UI Engineer · Product Designer · Frontend Specialist (React)</div>
-          <p className="hero-sub">3.6 years delivering scalable digital products across SaaS, B2B, analytics, and e-commerce — bridging pixel-perfect design with production-ready code.</p>
+          <p className="hero-sub">3.5 years delivering scalable digital products across SaaS, B2B, analytics, and e-commerce — bridging pixel-perfect design with production-ready code.</p>
           <div className="hero-acts">
             <a href="#projects" className="btn bp" onClick={(e) => { e.preventDefault(); scrollToSection('projects'); }}>View Projects ↓</a>
             <a href="https://www.behance.net/sudhersunsun" target="_blank" rel="noreferrer" className="btn bo">Behance ↗</a>
