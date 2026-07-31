@@ -58,16 +58,21 @@ export function Cta() {
     <section id="contact" className="mt-[160px] lg:mt-[260px]">
       <div
         ref={sectionRef}
-        className="relative flex h-svh w-full items-center overflow-hidden bg-[var(--foreground)] text-[var(--background)]"
+        className="relative flex min-h-svh w-full items-center overflow-hidden bg-[var(--foreground)] py-20 text-[var(--background)] lg:h-svh lg:py-0"
       >
-        <div ref={trackRef} className="flex w-max items-center whitespace-nowrap pl-[8vw]">
-          <h2 className="text-[16vw] font-medium uppercase leading-none tracking-[-0.04em] lg:text-[13vw]">
+        {/* Mobile/tablet: wraps and stacks normally. Desktop (lg): becomes the
+            single nowrap line the GSAP horizontal scrub pins and drags. */}
+        <div
+          ref={trackRef}
+          className="edge flex flex-col items-start gap-10 lg:w-max lg:flex-row lg:items-center lg:gap-0 lg:whitespace-nowrap lg:pl-[8vw]"
+        >
+          <h2 className="text-[11vw] font-medium uppercase leading-[1.05] tracking-[-0.04em] sm:text-[9vw] lg:text-[13vw] lg:leading-none">
             {LINE}
           </h2>
           <button
             type="button"
             onClick={openContact}
-            className="group ml-[6vw] mr-[8vw] grid h-32 w-32 shrink-0 place-items-center rounded-full bg-[var(--accent)] text-base uppercase tracking-[0.12em] text-white lg:h-44 lg:w-44"
+            className="group grid h-24 w-24 shrink-0 place-items-center rounded-full bg-[var(--accent)] text-sm uppercase tracking-[0.12em] text-white lg:ml-[6vw] lg:mr-[8vw] lg:h-44 lg:w-44 lg:text-base"
           >
             <span className="transition-transform duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-110">
               Let&rsquo;s talk

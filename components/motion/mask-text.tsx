@@ -51,6 +51,7 @@ export function MaskChars({
   delay = 0,
   stagger = 0.055,
   duration = 1.1,
+  float = false,
 }: {
   text: string;
   className?: string;
@@ -58,6 +59,8 @@ export function MaskChars({
   delay?: number;
   stagger?: number;
   duration?: number;
+  /** Once the entrance reveal settles, each letter idles with its own gentle bob. */
+  float?: boolean;
 }) {
   const container: Variants = {
     hidden: {},
@@ -78,13 +81,26 @@ export function MaskChars({
       className={cn('flex', className)}
       aria-label={text}
     >
-      {text.split('').map((ch, i) => (
-        <span key={i} className="mask" aria-hidden>
+      {text.split('').map((ch, i) => {
+        const floatDelay = delay + i * stagger + duration + i * 0.09;
+        return (
+        <span
+          key={i}
+          className={cn(float && 'char-float')}
+          style={
+            float
+              ? { animationDelay: `${floatDelay}s`, animationDuration: `${2.4 + (i % 3) * 0.35}s` }
+              : undefined
+          }
+        >
+        <span className="mask" aria-hidden>
           <motion.span variants={child} className={cn('block will-change-transform', charClassName)}>
             {ch === ' ' ? ' ' : ch}
           </motion.span>
         </span>
-      ))}
+        </span>
+        );
+      })}
     </motion.span>
   );
 }

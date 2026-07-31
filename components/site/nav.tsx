@@ -74,27 +74,37 @@ export function Nav() {
             </span>
           </button>
 
-          <button
-            onClick={() => setOpen((v) => !v)}
-            aria-label={open ? 'Close menu' : 'Open menu'}
-            aria-expanded={open}
-            className="relative z-[70] flex h-10 w-10 flex-col items-center justify-center gap-[5px] lg:hidden"
-          >
-            <span
-              className={cn(
-                'block h-[1.5px] w-6 bg-current transition-transform duration-400 ease-[cubic-bezier(0.33,1,0.68,1)]',
-                open && 'translate-y-[3.25px] rotate-45',
-              )}
-            />
-            <span
-              className={cn(
-                'block h-[1.5px] w-6 bg-current transition-transform duration-400 ease-[cubic-bezier(0.33,1,0.68,1)]',
-                open && '-translate-y-[3.25px] -rotate-45',
-              )}
-            />
-          </button>
+          {/* Spacer so the bar keeps its layout; the real button lives outside
+              .nav below so it isn't capped by the nav's own z-50 stacking
+              context (a nested z-index can never outrank a sibling context). */}
+          <div className="h-10 w-10 lg:hidden" aria-hidden />
         </div>
       </motion.nav>
+
+      <motion.button
+        animate={{ y: hidden ? '-105%' : '0%' }}
+        transition={{ duration: 0.5, ease: EASE }}
+        onClick={() => setOpen((v) => !v)}
+        aria-label={open ? 'Close menu' : 'Open menu'}
+        aria-expanded={open}
+        className={cn(
+          'fixed right-4 top-4 z-[80] flex h-10 w-10 flex-col items-center justify-center gap-[5px] lg:hidden',
+          open && 'text-white',
+        )}
+      >
+        <span
+          className={cn(
+            'block h-[1.5px] w-6 bg-current transition-transform duration-400 ease-[cubic-bezier(0.33,1,0.68,1)]',
+            open && 'translate-y-[3.25px] rotate-45',
+          )}
+        />
+        <span
+          className={cn(
+            'block h-[1.5px] w-6 bg-current transition-transform duration-400 ease-[cubic-bezier(0.33,1,0.68,1)]',
+            open && '-translate-y-[3.25px] -rotate-45',
+          )}
+        />
+      </motion.button>
 
       <AnimatePresence>
         {open && (
@@ -103,10 +113,9 @@ export function Nav() {
             animate={{ clipPath: 'inset(0 0 0% 0)' }}
             exit={{ clipPath: 'inset(0 0 100% 0)' }}
             transition={{ duration: 0.7, ease: EASE }}
-            className="fixed inset-0 z-[60] flex flex-col justify-between bg-[var(--accent)] p-4 text-white lg:px-8"
+            className="fixed inset-0 z-[60] flex flex-col justify-center gap-12 bg-[var(--accent)] p-4 text-white lg:px-8"
           >
             <SocialLinks
-              className="pt-16"
               linkClassName="text-white/80 hover:text-white hover:translate-y-0"
               iconClassName="h-6 w-6"
             />
@@ -128,7 +137,7 @@ export function Nav() {
               ))}
             </ul>
 
-            <div className="pb-4 text-sm uppercase opacity-80">{site.email}</div>
+            <div className="text-sm uppercase opacity-80">{site.email}</div>
           </motion.div>
         )}
       </AnimatePresence>

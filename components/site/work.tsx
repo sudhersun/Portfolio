@@ -19,20 +19,35 @@ function Panel({ project, index }: { project: Project; index: number }) {
       style={{ background: project.bg, color: project.fg }}
     >
       {/* Full-bleed artwork occupies the upper field. project.bg shows through
-          while the placeholder loads, then the real photo covers it. */}
+          while the placeholder loads. A blurred duplicate fills the edges so
+          the real image can sit fully contained and never gets awkwardly
+          cropped, whatever the screen's aspect ratio. */}
       <div className="relative min-h-0 flex-1 overflow-hidden">
         <Image
           src={project.image}
-          alt={`${project.title} case study`}
+          alt=""
+          aria-hidden
           fill
           sizes="100vw"
-          className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105"
+          className="scale-110 object-cover opacity-60 blur-md"
           priority={index === 0}
         />
+        <div className="absolute inset-0 flex items-center justify-center p-6 lg:p-14">
+          <div className="relative h-full w-full">
+            <Image
+              src={project.image}
+              alt={`${project.title} case study`}
+              fill
+              sizes="100vw"
+              className="!w-fit m-auto rounded-2xl object-contain transition-transform duration-700 ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105"
+              priority={index === 0}
+            />
+          </div>
+        </div>
       </div>
 
       {/* Solid info strip, as on the reference panels */}
-      <div className="shrink-0 space-y-4 p-4 pb-8 lg:space-y-6 lg:p-8 lg:pb-10">
+      <div className="shrink-0 space-y-4 p-4 pb-30 lg:space-y-6 lg:p-8 lg:pb-10">
         <p className="max-w-[46ch] text-sm leading-relaxed opacity-70 lg:text-base">{project.description}</p>
 
         <div className="flex items-end justify-between gap-6">

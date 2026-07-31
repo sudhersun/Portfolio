@@ -143,4 +143,27 @@
     overflow: hidden;
     clip-path: inset(0 0 -0.15em 0);
   }
+
+  /* Idle per-character bob for the hero wordmark — sits on a wrapper outside
+     .mask's clip box so upward movement never gets cut off. */
+  @keyframes char-float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-0.06em);
+    }
+  }
+
+  .char-float {
+    display: inline-block;
+    animation: char-float 2.6s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .char-float {
+      animation: none;
+    }
+  }
 }
