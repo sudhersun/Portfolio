@@ -1,0 +1,30 @@
+# dependencies
+/node_modules
+
+# next.js build output
+/.next/
+/out/
+
+# production
+/build
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# env files (may contain secrets, e.g. RESEND_API_KEY)
+.env
+.env*.local
+
+# logs
+*.log
+npm-debug.log*
+
+# dev tooling / scratch analysis (screenshots, probe scripts) — not needed to run the site
+/probe
+
+# editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
