@@ -39,7 +39,7 @@ export function Footer() {
 
           <Rise delay={0.1}>
             <button
-              type="button"
+              type="button "
               onClick={openContact}
               className="group inline-flex w-full max-w-md items-center justify-center gap-2 bg-[var(--foreground)] px-8 py-4 text-[var(--background)] transition-colors hover:bg-[var(--accent)]"
             >
